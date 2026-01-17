@@ -1,0 +1,115 @@
+.membership-page {
+  padding-top: 70px;
+}
+
+.membership-hero {
+  height: 50vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+}
+
+.membership-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.membership-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.membership-hero h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.membership-hero h1 span {
+  color: #ff4d4d;
+}
+
+.membership-hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background: #111;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  color: #ccc;
+}
+
+.benefit-item .check-icon {
+  color: #ff4d4d;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* FAQ Section */
+.faq-section {
+  background: #0a0a0a;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #1a1a1a;
+  padding: 25px 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #222;
+}
+
+.faq-item h3 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  color: #888;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .membership-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}

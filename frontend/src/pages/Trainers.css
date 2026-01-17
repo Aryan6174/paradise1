@@ -1,0 +1,79 @@
+.trainers-page {
+  padding-top: 70px;
+}
+
+.trainers-hero {
+  height: 50vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+}
+
+.trainers-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.trainers-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.trainers-hero h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.trainers-hero h1 span {
+  color: #ff4d4d;
+}
+
+.trainers-hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Why Trainers Section */
+.why-trainers {
+  background: #111;
+}
+
+.why-card {
+  background: #1a1a1a;
+  padding: 40px 30px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #222;
+  transition: all 0.3s ease;
+}
+
+.why-card:hover {
+  border-color: #ff4d4d;
+  transform: translateY(-5px);
+}
+
+.why-card h3 {
+  font-size: 1.3rem;
+  color: #ff4d4d;
+  margin-bottom: 15px;
+}
+
+.why-card p {
+  color: #888;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .trainers-hero h1 {
+    font-size: 2.5rem;
+  }
+}
