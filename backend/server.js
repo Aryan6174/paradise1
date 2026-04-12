@@ -1,4 +1,3 @@
-// 👇 SEED ROUTE WITH REAL DATA
 app.get('/api/seed', async (req, res) => {
   try {
     const Trainer = require('./models/Trainer');
@@ -10,23 +9,29 @@ app.get('/api/seed', async (req, res) => {
     await Class.deleteMany({});
     await Membership.deleteMany({});
 
-    // Seed Trainers
+    // Seed Trainers ✅ Fixed with email and array specialization
     await Trainer.insertMany([
       {
         name: 'Laxman Meena',
-        specialization: 'Weight Training & Strength',
+        email: 'laxman@paradisegym.com',
+        specialization: ['Weight Training', 'Strength Training'],
         experience: 15,
         phone: '7014878955',
         bio: '15 years of experience in fitness and weight training. Dedicated to helping members achieve their fitness goals.',
-        image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAE8Kf2bf5L0-dFzlfWRpWXoOkgmmrPxwkyNuNPonYYXmQuEerx5Au08wLfaAR9AHnnqlgisOLVcjacAMKYUnB9h0yy1oQDBPNhLN2PfIBlkdReilJHYv1ainB1qO3uqhMgvi2yLeA=w289-h312-n-k-no'
+        image: 'https://randomuser.me/api/portraits/men/1.jpg',
+        certifications: [],
+        isActive: true
       },
       {
         name: 'Siddharth Meena',
-        specialization: 'Cardio & Muscle Building',
+        email: 'siddharth@paradisegym.com',
+        specialization: ['Cardio', 'Muscle Building'],
         experience: 10,
         phone: '8740062864',
         bio: '10 years of experience in fitness training. Passionate about helping members transform their bodies.',
-        image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAE8Kf2bf5L0-dFzlfWRpWXoOkgmmrPxwkyNuNPonYYXmQuEerx5Au08wLfaAR9AHnnqlgisOLVcjacAMKYUnB9h0yy1oQDBPNhLN2PfIBlkdReilJHYv1ainB1qO3uqhMgvi2yLeA=w289-h312-n-k-no'
+        image: 'https://randomuser.me/api/portraits/men/2.jpg',
+        certifications: [],
+        isActive: true
       }
     ]);
 
@@ -34,7 +39,7 @@ app.get('/api/seed', async (req, res) => {
     await Class.insertMany([
       {
         name: 'Weight Training',
-        description: 'Build muscle and strength with our weight training program under expert guidance.',
+        description: 'Build muscle and strength with expert guidance.',
         duration: 60,
         capacity: 20,
         schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
@@ -42,7 +47,7 @@ app.get('/api/seed', async (req, res) => {
       },
       {
         name: 'Cardio Training',
-        description: 'Burn fat and improve cardiovascular health with our cardio program.',
+        description: 'Burn fat and improve cardiovascular health.',
         duration: 45,
         capacity: 25,
         schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
@@ -50,7 +55,7 @@ app.get('/api/seed', async (req, res) => {
       },
       {
         name: 'HIIT',
-        description: 'High intensity interval training for maximum fat burn and fitness.',
+        description: 'High intensity interval training for maximum fat burn.',
         duration: 45,
         capacity: 20,
         schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
@@ -58,7 +63,7 @@ app.get('/api/seed', async (req, res) => {
       },
       {
         name: 'Muscle Building',
-        description: 'Dedicated program for building lean muscle mass with proper form and technique.',
+        description: 'Dedicated program for building lean muscle mass.',
         duration: 60,
         capacity: 15,
         schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
@@ -72,14 +77,13 @@ app.get('/api/seed', async (req, res) => {
         name: '1 Month',
         duration: 1,
         price: 1000,
-        description: 'Perfect for beginners to get started',
+        description: 'Perfect for beginners',
         features: [
           'Full gym access',
           'All equipment access',
           'Trainer guidance',
           'Locker room access',
-          'Free parking',
-          'Mon to Sat - 5AM to 10PM'
+          'Free parking'
         ]
       },
       {
@@ -93,8 +97,7 @@ app.get('/api/seed', async (req, res) => {
           'Trainer guidance',
           'Locker room access',
           'Free parking',
-          'Diet consultation',
-          'Mon to Sat - 5AM to 10PM'
+          'Diet consultation'
         ]
       },
       {
@@ -109,8 +112,7 @@ app.get('/api/seed', async (req, res) => {
           'Locker room access',
           'Free parking',
           'Diet consultation',
-          'Progress tracking',
-          'Mon to Sat - 5AM to 10PM'
+          'Progress tracking'
         ]
       },
       {
@@ -126,8 +128,7 @@ app.get('/api/seed', async (req, res) => {
           'Free parking',
           'Diet consultation',
           'Progress tracking',
-          'Priority support',
-          'Mon to Sat - 5AM to 10PM'
+          'Priority support'
         ]
       }
     ]);
@@ -142,6 +143,10 @@ app.get('/api/seed', async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error('Seed error:', error);
+    res.status(500).json({ 
+      message: error.message,
+      details: error.toString()
+    });
   }
 });
