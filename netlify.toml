@@ -1,12 +1,15 @@
 [build]
   base = "frontend"
   publish = "build"
-  command = "rm -rf node_modules && npm install && npm run build"
+  command = """
+    npm install react-scripts@5.0.1 --save
+    npm install
+    npm run build
+  """
 
 [build.environment]
   CI = "false"
   NODE_VERSION = "18"
-  NPM_CONFIG_PRODUCTION = "false"
 
 [[redirects]]
   from = "/*"
