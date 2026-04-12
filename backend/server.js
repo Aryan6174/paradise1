@@ -13,7 +13,13 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+// Find your CORS code and update it like this:
+
+const cors = require('cors');
+
+app.use(cors({
+  origin: process.env.https:FRONTEND_URL  // 👈 paste this
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
