@@ -62,7 +62,7 @@ app.get('/api/seed', async (req, res) => {
         experience: 15,
         phone: '7014878955',
         bio: '15 years of experience in fitness and weight training. Dedicated to helping members achieve their fitness goals.',
-        image: 'https://randomuser.me/api/portraits/men/1.jpg',
+        image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAE8Kf2bf5L0-dFzlfWRpWXoOkgmmrPxwkyNuNPonYYXmQuEerx5Au08wLfaAR9AHnnqlgisOLVcjacAMKYUnB9h0yy1oQDBPNhLN2PfIBlkdReilJHYv1ainB1qO3uqhMgvi2yLeA=w289-h312-n-k-no',
         certifications: [],
         isActive: true
       },
@@ -73,7 +73,7 @@ app.get('/api/seed', async (req, res) => {
         experience: 10,
         phone: '8740062864',
         bio: '10 years of experience in fitness training. Passionate about helping members transform their bodies.',
-        image: 'https://randomuser.me/api/portraits/men/2.jpg',
+        image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAE8Kf2bf5L0-dFzlfWRpWXoOkgmmrPxwkyNuNPonYYXmQuEerx5Au08wLfaAR9AHnnqlgisOLVcjacAMKYUnB9h0yy1oQDBPNhLN2PfIBlkdReilJHYv1ainB1qO3uqhMgvi2yLeA=w289-h312-n-k-no',
         certifications: [],
         isActive: true
       }
