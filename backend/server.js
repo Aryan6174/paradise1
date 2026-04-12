@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 });
 
 // Seed route
+// Seed route
 app.get('/api/seed', async (req, res) => {
   try {
     const Trainer = require('./models/Trainer');
@@ -52,8 +53,8 @@ app.get('/api/seed', async (req, res) => {
     await Class.deleteMany({});
     await Membership.deleteMany({});
 
-    // Seed Trainers
-    await Trainer.insertMany([
+    // Seed Trainers First (we need their IDs for classes)
+    const trainers = await Trainer.insertMany([
       {
         name: 'Laxman Meena',
         email: 'laxman@paradisegym.com',
@@ -78,38 +79,66 @@ app.get('/api/seed', async (req, res) => {
       }
     ]);
 
-    // Seed Classes
+    // Get trainer IDs
+    const laxman = trainers[0]._id;
+    const siddharth = trainers[1]._id;
+
+    // Seed Classes with correct fields
     await Class.insertMany([
       {
         name: 'Weight Training',
         description: 'Build muscle and strength with expert guidance.',
-        duration: 60,
+        trainer: laxman,
+        schedule: {
+          day: 'Monday to Saturday',
+          startTime: '05:00 AM',
+          endTime: '10:00 PM'
+        },
         capacity: 20,
-        schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
+        category: 'Strength',
+        difficulty: 'Intermediate',
         image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400'
       },
       {
         name: 'Cardio Training',
         description: 'Burn fat and improve cardiovascular health.',
-        duration: 45,
+        trainer: siddharth,
+        schedule: {
+          day: 'Monday to Saturday',
+          startTime: '05:00 AM',
+          endTime: '10:00 PM'
+        },
         capacity: 25,
-        schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
+        category: 'Cardio',
+        difficulty: 'Beginner',
         image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400'
       },
       {
         name: 'HIIT',
         description: 'High intensity interval training for maximum fat burn.',
-        duration: 45,
+        trainer: siddharth,
+        schedule: {
+          day: 'Monday to Saturday',
+          startTime: '05:00 AM',
+          endTime: '10:00 PM'
+        },
         capacity: 20,
-        schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
+        category: 'HIIT',
+        difficulty: 'Advanced',
         image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400'
       },
       {
         name: 'Muscle Building',
         description: 'Dedicated program for building lean muscle mass.',
-        duration: 60,
+        trainer: laxman,
+        schedule: {
+          day: 'Monday to Saturday',
+          startTime: '05:00 AM',
+          endTime: '10:00 PM'
+        },
         capacity: 15,
-        schedule: 'Mon to Sat - 5:00 AM to 10:00 PM',
+        category: 'Strength',
+        difficulty: 'Intermediate',
         image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400'
       }
     ]);
@@ -118,9 +147,10 @@ app.get('/api/seed', async (req, res) => {
     await Membership.insertMany([
       {
         name: '1 Month',
-        duration: 1,
+        duration: 30,
         price: 1000,
         description: 'Perfect for beginners',
+        isPopular: false,
         features: [
           'Full gym access',
           'All equipment access',
@@ -131,9 +161,10 @@ app.get('/api/seed', async (req, res) => {
       },
       {
         name: '3 Months',
-        duration: 3,
+        duration: 90,
         price: 2400,
         description: 'Most popular plan - Save ₹600',
+        isPopular: true,
         features: [
           'Full gym access',
           'All equipment access',
@@ -145,9 +176,10 @@ app.get('/api/seed', async (req, res) => {
       },
       {
         name: '6 Months',
-        duration: 6,
+        duration: 180,
         price: 4500,
         description: 'Great value - Save ₹1500',
+        isPopular: false,
         features: [
           'Full gym access',
           'All equipment access',
@@ -160,9 +192,10 @@ app.get('/api/seed', async (req, res) => {
       },
       {
         name: '1 Year',
-        duration: 12,
+        duration: 365,
         price: 8000,
         description: 'Best value - Save ₹4000',
+        isPopular: false,
         features: [
           'Full gym access',
           'All equipment access',
@@ -193,7 +226,6 @@ app.get('/api/seed', async (req, res) => {
     });
   }
 });
-
 // Error handler
 app.use(errorHandler);
 
