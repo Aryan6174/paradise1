@@ -9,9 +9,17 @@ const API = axios.create({
 
 // Add token to every request automatically
 API.interceptors.request.use((req) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    req.headers.Authorization = `Bearer ${token}`;
+  try {
+    // ✅ Get token from user object in localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      if (user && user.token) {
+        req.headers.Authorization = `Bearer ${user.token}`;
+      }
+    }
+  } catch (err) {
+    console.error('Error getting token:', err);
   }
   return req;
 });
