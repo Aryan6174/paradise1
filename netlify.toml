@@ -1,11 +1,7 @@
 [build]
   base = "frontend"
   publish = "build"
-  command = """
-    npm install react-scripts@5.0.1 --save
-    npm install
-    npm run build
-  """
+  command = "npm install && npm run build"
 
 [build.environment]
   CI = "false"
