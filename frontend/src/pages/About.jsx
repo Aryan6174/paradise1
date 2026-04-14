@@ -299,7 +299,7 @@ const About = () => {
               {/* Developer Photo */}
               <div className="dev-photo-wrapper">
                 <img
-                  src="/developer.jpg"
+                  src="/developer.jpeg"
                   alt="Aryan - Web Developer"
                   className="dev-photo"
                 />
