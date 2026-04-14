@@ -8,7 +8,16 @@ import {
   FaCheckCircle,
   FaWhatsapp,
   FaPhone,
-  FaArrowRight
+  FaArrowRight,
+  FaCode,
+  FaLaptopCode,
+  FaRocket,
+  FaStar,
+  FaLinkedin,
+  FaGlobe,
+  FaMobileAlt,
+  FaShoppingCart,
+  FaChartLine
 } from 'react-icons/fa';
 import './About.css';
 
@@ -58,8 +67,42 @@ const About = () => {
     }
   ];
 
+  const devServices = [
+    {
+      icon: <FaGlobe />,
+      title: 'Business Websites',
+      description: 'Professional websites that represent your brand and attract more customers.'
+    },
+    {
+      icon: <FaShoppingCart />,
+      title: 'E-Commerce Stores',
+      description: 'Full-featured online stores with payment integration and inventory management.'
+    },
+    {
+      icon: <FaMobileAlt />,
+      title: 'Mobile Responsive',
+      description: 'Websites that look perfect on all devices - mobile, tablet and desktop.'
+    },
+    {
+      icon: <FaChartLine />,
+      title: 'Business Growth',
+      description: 'Websites designed to convert visitors into customers and grow your business.'
+    },
+    {
+      icon: <FaRocket />,
+      title: 'Fast & Optimized',
+      description: 'Lightning fast websites with SEO optimization to rank higher on Google.'
+    },
+    {
+      icon: <FaCode />,
+      title: 'Custom Development',
+      description: 'Tailored web solutions built specifically for your business requirements.'
+    }
+  ];
+
   return (
     <div className="about-page">
+
       {/* Hero Section */}
       <section className="about-hero">
         <div className="hero-overlay"></div>
@@ -95,7 +138,6 @@ const About = () => {
                 accessible and provides a comfortable, motivating environment for 
                 people of all fitness levels.
               </p>
-              
               <div className="owner-info">
                 <h4>Led by Experienced Trainers:</h4>
                 <ul>
@@ -104,7 +146,7 @@ const About = () => {
                     training, weight loss, and muscle building
                   </li>
                   <li>
-                    <strong>Siddharth Meena</strong> - 15+ years experience in fat loss, 
+                    <strong>Siddharth Meena</strong> - 10+ years experience in fat loss, 
                     strength conditioning, and wellness
                   </li>
                 </ul>
@@ -195,7 +237,6 @@ const About = () => {
             <div className="timings-content">
               <h2>Gym <span>Timings</span></h2>
               <p>We're open 6 days a week with extended hours for your convenience</p>
-              
               <div className="timings-table">
                 <div className="timing-row">
                   <span className="day">Monday - Saturday</span>
@@ -210,7 +251,6 @@ const About = () => {
                   <span className="time">To be announced</span>
                 </div>
               </div>
-
               <div className="timings-note">
                 <p>
                   <strong>Note:</strong> Best time for beginners is morning (6 AM - 9 AM) 
@@ -242,6 +282,150 @@ const About = () => {
         </div>
       </section>
 
+      {/* ================================ */}
+      {/* DEVELOPER SECTION */}
+      {/* ================================ */}
+      <section className="section developer-section">
+        <div className="container">
+
+          <div className="developer-grid">
+
+            {/* Left - Developer Info */}
+            <div className="developer-info">
+              <div className="dev-badge">
+                <FaCode /> Website Developer
+              </div>
+
+              {/* Developer Photo */}
+              <div className="dev-photo-wrapper">
+                <img
+                  src="/developer.jpg"
+                  alt="Aryan - Web Developer"
+                  className="dev-photo"
+                />
+                <div className="dev-photo-badge">
+                  <FaLaptopCode />
+                  <span>Software Developer</span>
+                </div>
+              </div>
+
+              <h2>This Website Was Built By <span>Aryan</span></h2>
+              <p className="dev-tagline">
+                🚀 Turning Business Ideas into Powerful Digital Experiences
+              </p>
+              <p className="dev-description">
+                Hi! I'm <strong>Aryan</strong>, a passionate Software Developer
+                specializing in building <strong>business-ready websites</strong> that
+                don't just look great — they drive real results.
+              </p>
+              <p className="dev-description">
+                Whether you're a <strong>gym owner, restaurant, shop, or any
+                local business</strong>, I can build you a professional website
+                that attracts more customers, builds trust, and grows your
+                business online.
+              </p>
+
+              {/* Why Choose Me */}
+              <div className="dev-features">
+                <div className="dev-feature">
+                  <FaCheckCircle className="dev-check" />
+                  <span>Professional & Modern Design</span>
+                </div>
+                <div className="dev-feature">
+                  <FaCheckCircle className="dev-check" />
+                  <span>Mobile Friendly & Fast Loading</span>
+                </div>
+                <div className="dev-feature">
+                  <FaCheckCircle className="dev-check" />
+                  <span>SEO Optimized to Rank on Google</span>
+                </div>
+                <div className="dev-feature">
+                  <FaCheckCircle className="dev-check" />
+                  <span>Affordable Pricing for Local Businesses</span>
+                </div>
+                <div className="dev-feature">
+                  <FaCheckCircle className="dev-check" />
+                  <span>Quick Delivery & Ongoing Support</span>
+                </div>
+                <div className="dev-feature">
+                  <FaCheckCircle className="dev-check" />
+                  <span>100% Custom Built for Your Business</span>
+                </div>
+              </div>
+
+              {/* Contact Buttons */}
+              <div className="dev-buttons">
+                <a
+                  href="https://wa.me/919024779254?text=Hi%20Aryan!%20I%20saw%20your%20work%20on%20Paradise%20Gym%20website.%20I%20want%20a%20website%20for%20my%20business."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-whatsapp"
+                >
+                  <FaWhatsapp /> WhatsApp Me
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aryan-dadhich"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-linkedin"
+                >
+                  <FaLinkedin /> LinkedIn
+                </a>
+              </div>
+
+              <p className="dev-note">
+                💬 Free consultation for your business website!
+              </p>
+            </div>
+
+            {/* Right - Services Cards */}
+            <div className="developer-services">
+              <h3>What I Can Build For <span>Your Business</span></h3>
+              <div className="dev-services-grid">
+                {devServices.map((service, index) => (
+                  <div key={index} className="dev-service-card">
+                    <div className="dev-service-icon">{service.icon}</div>
+                    <h4>{service.title}</h4>
+                    <p>{service.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom CTA Bar */}
+          <div className="dev-cta-bar">
+            <div className="dev-cta-text">
+              <FaStar className="star-icon" />
+              <p>
+                <strong>Want a website like this for your business?</strong>{' '}
+                Contact me today for a free consultation and quote!
+              </p>
+            </div>
+            <div className="dev-cta-buttons">
+              <a
+                href="https://wa.me/919024779254?text=Hi%20Aryan!%20I%20want%20a%20website%20for%20my%20business."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-whatsapp"
+              >
+                <FaWhatsapp /> Get Free Quote
+              </a>
+              <a
+                href="https://www.linkedin.com/in/aryan-dadhich"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-linkedin"
+              >
+                <FaLinkedin /> View My Profile
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section about-cta">
         <div className="container">
@@ -263,6 +447,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };
